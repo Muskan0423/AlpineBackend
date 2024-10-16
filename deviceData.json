@@ -1,0 +1,10 @@
+{
+    "iPhone_12": { "releaseYear": 2020, "currentValue": 700 },
+    "Samsung_Galaxy_S21": { "releaseYear": 2021, "currentValue": 800 },
+    "MacBook_Pro_2019": { "releaseYear": 2019, "currentValue": 1300 },
+    "Dell_XPS_13": { "releaseYear": 2019, "currentValue": 1000 },
+    "iPhone_X": { "releaseYear": 2017, "currentValue": 400 },
+    "Desktop_High_End": { "releaseYear": 2021, "currentValue": 2000 },
+    "Desktop_Budget": { "releaseYear": 2018, "currentValue": 500 }
+  }
+  
