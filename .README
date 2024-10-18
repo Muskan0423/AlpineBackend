@@ -1,0 +1,21 @@
+# Backend with Docker
+
+This project is a Node.js backend application designed to run inside a Docker container and also is live on the url "https://alpinebackend-1.onrender.com". It provides a RESTful API 
+
+## Prerequisites
+
+- [Docker](https://www.docker.com/get-started) installed on your machine.
+
+## to run through docker 
+## you may choose any port 
+docker run -p 3000:3000 my-node-app
+
+
+
+git clone https://github.com/Muskan0423/AlpineBackend.git
+cd AlpineBackend/
+## node modules installation
+npm install
+## to start the repo
+nodemon index.js 
+
