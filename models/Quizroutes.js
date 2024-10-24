@@ -15,20 +15,25 @@ router.post('/discount', (req, res) => {
 
 const calculateDiscount = (ageRange, zipCode, deviceType) => {
   let baseDiscount = 30; 
-
   const zipPurchasingPower = zipData[zipCode]?.averageIncome || 50000;
 
-  if (ageRange === '18-25') baseDiscount -= 2;
-  if (ageRange === '26-35') baseDiscount -= 3;
-  if (ageRange === '36-45') baseDiscount -= 4;
-  if (ageRange === '46+') baseDiscount -= 5;
+  const ageDiscount = {
+    '18-25': -2,
+    '26-35': -3,
+    '36-45': -4,
+    '46+': -5,
+  }[ageRange] || 0;
 
-  if (zipPurchasingPower > 100000) baseDiscount -= 5;
-  else if (zipPurchasingPower > 75000) baseDiscount -= 3;
+  const incomeDiscount = zipPurchasingPower > 100000 ? -5 :
+                         zipPurchasingPower > 75000 ? -3 : 0;
+
+  baseDiscount += ageDiscount + incomeDiscount;
 
   const deviceValue = deviceData[deviceType]?.currentValue || 500;
-  if (deviceValue > 1000) baseDiscount -= 5;
-  else if (deviceValue > 500) baseDiscount -= 3;
+  const deviceDiscount = deviceValue > 1000 ? -5 : 
+                         deviceValue > 500 ? -3 : 0;
+
+  baseDiscount += deviceDiscount;
 
   return Math.max(5, Math.min(baseDiscount, 30));
 };
